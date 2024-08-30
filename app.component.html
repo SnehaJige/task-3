@@ -1,0 +1,29 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-4 p-4 add">
+            <form #myForm = "ngForm">
+                <h1>Add Section</h1>
+                <div class="form-group">
+                  <label for="sectionH">Section Header</label>
+                  <input type="text" class="form-control form-control-sm" id="sectionH" name="header" [(ngModel)]="header">
+                </div>
+                <div class="form-group">
+                  <label for="sectionD">Section Details</label>
+                  <textarea class="form-control" id="sectionD" rows="5" name="content" [(ngModel)]="content" ></textarea>
+                </div>
+                <button type="button" class="btn btn-primary btn-lg btn-block" (click)="addNewSection()">Add</button>
+              </form>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <p-accordion >
+                    <p-accordionTab [header]="tab.header" *ngFor="let tab of tabs">
+                        <p class="m-0">
+                            {{ tab.content }}
+                        </p>
+                    </p-accordionTab>
+                </p-accordion>
+            </div>
+        </div>
+    </div>
+</div>
